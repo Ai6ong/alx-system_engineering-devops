@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -name "*.gif" | ls -av
+find . -type f -name "*.gif" -exec sh -c 'ls -v "$0" | rev | cut -d"." -f2- | rev' {} \; | sort -f | printf '%s\n'
